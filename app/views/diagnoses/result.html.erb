@@ -1,0 +1,25 @@
+<!-- 診断結果ページのヘッダー -->
+<h1 class="display-4">診断結果</h1>
+<p class="lead">渡す方の名前: <strong><%= @recipient_name %></strong></p>
+<p class="lead">シーン: <strong><%= @scene %></strong></p>
+<p class="lead">イメージカラー: <strong><%= @image_color %></strong></p>
+<!-- おすすめの花束のリスト -->
+<h2>おすすめの花束:</h2>
+<% if @flowers.any? %>
+  <ul class="list-group">
+    <% @flowers.each do |flower| %>
+      <li class="list-group-item"><%= flower.name %> - <%= flower.description %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="alert alert-warning">該当する花が見つかりませんでした。別の名前や条件で試してください。</p>
+<% end %>
+<!-- フラッシュメッセージの表示 -->
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+<!-- リンクボタン -->
+<%= link_to 'もう一度診断する', diagnoses_new_path, class: "btn btn-primary" %>

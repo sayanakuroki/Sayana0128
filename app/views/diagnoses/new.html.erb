@@ -1,0 +1,30 @@
+<h1></h1><head>
+<meta charset="UTF-8">
+<title>sayana0387</title>
+ <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+<p class="text-creating">-creating-</p>
+<%= form_with url: diagnoses_create_path, method: :post do %>
+  <div>
+    <label for="recipient_name">贈る相手の名前</label>
+    <%= text_field_tag :recipient_name %>
+  </div>
+
+  <div>
+    <label for="scene">シーン</label>
+    <%= select_tag :scene, options_for_select([['誕生日', 'birthday'], ['記念日', 'anniversary'], ['その他', 'other']]) %>
+  </div>
+
+  <div>
+    <label for="image_color">イメージカラー</label>
+    <%= select_tag :image_color, options_for_select([['赤', 'red'], ['青', 'blue'], ['黄色', 'yellow']]) %>
+  </div>
+
+  <%= submit_tag 'Lets_making' %>
+<% end %>
+</body>
